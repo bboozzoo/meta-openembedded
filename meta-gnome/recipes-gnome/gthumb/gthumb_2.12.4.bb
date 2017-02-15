@@ -30,6 +30,3 @@ FILES_${PN} += "${libdir}/${BPN}/extensions/*.so \
                 ${libdir}/${BPN}/extensions/*.extension"
 FILES_${PN}-dev += "${libdir}/${BPN}/extensions/*.la"
 FILES_${PN}-dbg += "${libdir}/${BPN}/extensions/.debug/"
-
-
-PNBLACKLIST[gthumb] ?= "Depends on blacklisted gstreamer"

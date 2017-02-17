@@ -10,15 +10,13 @@ DEPENDS_append_class-target = " efivar-native"
 
 COMPATIBLE_HOST = "(i.86|x86_64|arm|aarch64).*-linux"
 
-SRCREV = "963cb2e5adc145fe00717f94e382f2973f80e753"
+SRCREV = "270205d88598d60d4e75f9cec13b8d25d82ee550"
 SRC_URI = "git://github.com/rhinstaller/efivar.git \
-           file://0002-disable-static-build.patch \
 "
 SRC_URI_append_class-target = " file://0001-efivar-fix-for-cross-compile.patch \
                                 file://0003-efivar-fix-for-cross-compile.patch \
-                                ${@bb.utils.contains('DISTRO_FEATURES', 'ld-is-gold', 'file://0004-fix-unknow-option-for-gold-linker.patch', '', d)} \
                               "
-SRC_URI_append_class-native = " file://fix-compile-failure-with-host-gcc-4.6.patch \
+SRC_URI_append_class-native = " \ 
                                 file://allow-multi-definitions-for-native.patch \
                               "
 
@@ -41,5 +39,3 @@ do_install_append_class-native() {
 
 BBCLASSEXTEND = "native"
 
-
-PNBLACKLIST[efivar] ?= "Fails to build with RSS http://errors.yoctoproject.org/Errors/Details/132821/"
